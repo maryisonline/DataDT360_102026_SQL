@@ -1,6 +1,6 @@
 # 📊 Diagnóstico Comercial com SQL
 
-> Atividade de meio de curso — **SQL para Análise de Dados** (Datadt)
+> Atividade de meio de curso — **SQL para Análise de Dados** (DataDT360 - Mentor: Daniel Teofilo - Mentorada: Mary Castro)
 
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 ![SQL](https://img.shields.io/badge/SQL-Analytics-blue?style=for-the-badge)
