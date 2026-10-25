@@ -1,1 +1,114 @@
-# DataDT360_102026_SQL
+# 📊 Diagnóstico Comercial com SQL
+
+> Atividade de meio de curso — **SQL para Análise de Dados** (Datadt)
+
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-Analytics-blue?style=for-the-badge)
+![Status](https://img.shields.io/badge/status-concluído-success?style=for-the-badge)
+
+---
+
+## 📌 Sobre o projeto
+
+Neste projeto atuo como analista de dados e produzo um **diagnóstico comercial** a partir de um banco relacional corporativo (PostgreSQL), com dados de vendas, clientes, produtos, localização e RH.
+
+O objetivo é responder a 10 perguntas de negócio usando SQL e transformar os resultados em uma leitura clara para a diretoria.
+
+## 🛠️ Conceitos praticados
+
+- `JOIN` entre múltiplos schemas (`vendas`, `geral`)
+- Agregações (`SUM`, `AVG`, `COUNT`) e `GROUP BY`
+- `CASE` para categorização
+- **CTEs** encadeadas
+- **Window Functions**: `ROW_NUMBER`, `RANK`, `NTILE`, `LAG`, `SUM() OVER`
+- Subqueries e comparação com médias por grupo
+- Séries temporais com acumulado e variação mensal
+
+## 🗂️ Modelo de dados
+
+O banco possui três schemas principais:
+
+| Schema   | Tabelas principais                                              | Uso na análise                              |
+|----------|-----------------------------------------------------------------|---------------------------------------------|
+| `vendas` | `nota_fiscal`, `item_nota_fiscal`, `produto`, `categoria`, `forma_pagamento` | Receita, quantidade, ticket médio, margem |
+| `geral`  | `pessoa`, `pessoa_fisica`, `pessoa_juridica`, `endereco`, `bairro`, `cidade`, `estado` | Clientes, vendedores e análise geográfica |
+| `rh`     | `funcionario`, `lotacao`, `departamento`, `cargo`, `escolaridade` | Perfil interno                              |
+
+<!-- Adicione a imagem do diagrama em docs/modelo_relacional.png e descomente a linha abaixo -->
+<!-- ![Modelo relacional](docs/modelo_relacional.png) -->
+
+## ❓ Perguntas respondidas
+
+| #  | Pergunta                                                              | Técnicas principais                |
+|----|-----------------------------------------------------------------------|------------------------------------|
+| 01 | Listagem de notas fiscais com data, valor, pagamento, cliente e vendedor | `JOIN`, `COALESCE`                 |
+| 02 | Faturamento, quantidade e ticket médio por categoria                  | CTE, `SUM`, `COUNT DISTINCT`       |
+| 03 | Top 10 produtos por faturamento com ranking                           | `ROW_NUMBER`, `AVG`                |
+| 04 | Margem bruta por produto                                              | Cálculo (venda − custo)            |
+| 05 | Faturamento por estado e cidade do cliente                            | CTEs encadeadas, `GROUP BY`        |
+| 06 | Categorização de clientes (Alto, Médio e Baixo Valor)                 | `NTILE`, `CASE`                    |
+| 07 | Participação percentual de cada categoria no faturamento              | `SUM() OVER ()`                    |
+| 08 | Série temporal mensal com acumulado e variação                        | `DATE_TRUNC`, `LAG`                |
+| 09 | Produtos acima da média da própria categoria                          | CTE, `AVG` por grupo               |
+| 10 | Ranking de vendedores por faturamento e quantidade de NFs             | `RANK`                             |
+
+## 📁 Estrutura do repositório
+
+```
+.
+├── README.md
+├── sql/
+│   └── atividade_sql_meio_curso.sql   # todas as consultas, organizadas por pergunta
+├── docs/
+│   ├── modelo_relacional.png          # diagrama do banco
+│   └── prints/                        # prints dos principais resultados
+└── relatorio/
+    └── insights.md                    # relatório final (opcional)
+```
+
+## ▶️ Como executar
+
+1. Tenha acesso a um PostgreSQL com o banco da atividade carregado.
+2. Conecte usando a ferramenta de sua preferência (DBeaver, pgAdmin, `psql`).
+3. Abra o arquivo `sql/atividade_sql_meio_curso.sql`.
+4. Execute **uma consulta por vez** — cada pergunta está separada por um bloco de comentário.
+
+> 🔒 As credenciais de acesso ao banco não estão neste repositório.
+
+## 💡 Principais insights
+
+<!-- Preencha depois de rodar as queries. Exemplos de pontos para observar:
+     - Qual categoria concentra mais faturamento?
+     - Qual forma de pagamento gera mais receita?
+     - O faturamento está crescendo ou caindo ao longo dos meses?
+     - Quanto do faturamento vem dos clientes de Alto Valor?
+     - Quais cidades/estados concentram as vendas?
+     - Existe diferença grande de desempenho entre vendedores? -->
+
+1. **Insight 1:** _descreva aqui_
+2. **Insight 2:** _descreva aqui_
+3. **Insight 3:** _descreva aqui_
+4. **Insight 4:** _descreva aqui_
+5. **Insight 5:** _descreva aqui_
+
+## ✅ Recomendação para a diretoria
+
+_Escreva aqui uma recomendação objetiva baseada nos achados acima._
+
+## 📝 Premissas adotadas
+
+- **Valor da NF:** usado `nota_fiscal.valor` nas análises por cliente, mês e vendedor, para não duplicar valores por item.
+- **Faturamento por produto:** calculado a partir de `item_nota_fiscal.valor_venda_real`.
+- **Ticket médio:** faturamento ÷ número de notas fiscais.
+- **Clientes:** podem ser pessoa física ou jurídica.
+- **Vendedores:** considerados pessoa física.
+- **Categorias de cliente:** divididas em três grupos de mesmo tamanho pelo total comprado (`NTILE(3)`).
+
+## 👤 Autor
+
+**Seu Nome**
+[LinkedIn](https://www.linkedin.com/in/seu-perfil) · [GitHub](https://github.com/seu-usuario)
+
+---
+
+<sub>Projeto desenvolvido para fins educacionais.</sub>
