@@ -46,7 +46,7 @@ O banco possui três schemas principais:
 | 03 | Top 10 produtos por faturamento com ranking                           | `ROW_NUMBER`, `AVG`                |
 | 04 | Margem bruta por produto                                              | Cálculo (venda − custo)            |
 | 05 | Faturamento por estado e cidade do cliente                            | CTEs encadeadas, `GROUP BY`        |
-| 06 | Categorização de clientes (Alto, Médio e Baixo Valor)                 | `NTILE`, `CASE`                    |
+| 06 | Categorização de clientes (Alto, Médio e Baixo Valor)                 | `CASE`                             |
 | 07 | Participação percentual de cada categoria no faturamento              | `SUM() OVER ()`                    |
 | 08 | Série temporal mensal com acumulado e variação                        | `DATE_TRUNC`, `LAG`                |
 | 09 | Produtos acima da média da própria categoria                          | CTE, `AVG` por grupo               |
