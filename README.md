@@ -65,7 +65,7 @@ O banco possui três schemas principais:
 
 ## 💡 Principais observações
 
-1. A categoria que concentra mais faturamento é Informática._
+1. A categoria que concentra mais faturamento é Informática.
 2. _Fortaleza - CE é a cidade/estado que concentra maior faturamento.
 
 ## ✅ Recomendação para a diretoria
