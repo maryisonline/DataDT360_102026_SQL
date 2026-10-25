@@ -20,7 +20,7 @@ O objetivo é responder a 10 perguntas de negócio usando SQL e transformar os r
 - Agregações (`SUM`, `AVG`, `COUNT`) e `GROUP BY`
 - `CASE` para categorização
 - **CTEs** encadeadas
-- **Window Functions**: `ROW_NUMBER`, `RANK`, `NTILE`, `LAG`, `SUM() OVER`
+- **Window Functions**: `ROW_NUMBER`, `RANK`, `LAG`, `SUM() OVER`
 - Subqueries e comparação com médias por grupo
 - Séries temporais com acumulado e variação mensal
 
