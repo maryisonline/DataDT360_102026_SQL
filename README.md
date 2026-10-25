@@ -41,8 +41,8 @@ O banco possui três schemas principais:
 
 | #  | Pergunta                                                              | Técnicas principais                |
 |----|-----------------------------------------------------------------------|------------------------------------|
-| 01 | Listagem de notas fiscais com data, valor, pagamento, cliente e vendedor | `JOIN`, `COALESCE`                 |
-| 02 | Faturamento, quantidade e ticket médio por categoria                  | CTE, `SUM`, `COUNT DISTINCT`       |
+| 01 | Listagem de notas fiscais com data, valor, pagamento, cliente e vendedor | `JOIN`                          |
+| 02 | Faturamento, quantidade e ticket médio por categoria                  | CTE, `SUM`,                        |
 | 03 | Top 10 produtos por faturamento com ranking                           | `ROW_NUMBER`, `AVG`                |
 | 04 | Margem bruta por produto                                              | Cálculo (venda − custo)            |
 | 05 | Faturamento por estado e cidade do cliente                            | CTEs encadeadas, `GROUP BY`        |
@@ -52,18 +52,6 @@ O banco possui três schemas principais:
 | 09 | Produtos acima da média da própria categoria                          | CTE, `AVG` por grupo               |
 | 10 | Ranking de vendedores por faturamento e quantidade de NFs             | `RANK`                             |
 
-## 📁 Estrutura do repositório
-
-```
-.
-├── README.md
-├── sql/
-│   └── atividade_sql_meio_curso.sql   # todas as consultas, organizadas por pergunta
-├── docs/
-│   ├── modelo_relacional.png          # diagrama do banco
-│   └── prints/                        # prints dos principais resultados
-└── relatorio/
-    └── insights.md                    # relatório final (opcional)
 ```
 
 ## ▶️ Como executar
@@ -75,40 +63,13 @@ O banco possui três schemas principais:
 
 > 🔒 As credenciais de acesso ao banco não estão neste repositório.
 
-## 💡 Principais insights
+## 💡 Principais observações
 
-<!-- Preencha depois de rodar as queries. Exemplos de pontos para observar:
-     - Qual categoria concentra mais faturamento?
-     - Qual forma de pagamento gera mais receita?
-     - O faturamento está crescendo ou caindo ao longo dos meses?
-     - Quanto do faturamento vem dos clientes de Alto Valor?
-     - Quais cidades/estados concentram as vendas?
-     - Existe diferença grande de desempenho entre vendedores? -->
-
-1. **Insight 1:** _descreva aqui_
-2. **Insight 2:** _descreva aqui_
-3. **Insight 3:** _descreva aqui_
-4. **Insight 4:** _descreva aqui_
-5. **Insight 5:** _descreva aqui_
+1. _A categoria que concentra mais faturamento é Informática._
+2. _Fortaleza - CE é a cidade/estado que concentra maior faturamento._
 
 ## ✅ Recomendação para a diretoria
 
-_Escreva aqui uma recomendação objetiva baseada nos achados acima._
-
-## 📝 Premissas adotadas
-
-- **Valor da NF:** usado `nota_fiscal.valor` nas análises por cliente, mês e vendedor, para não duplicar valores por item.
-- **Faturamento por produto:** calculado a partir de `item_nota_fiscal.valor_venda_real`.
-- **Ticket médio:** faturamento ÷ número de notas fiscais.
-- **Clientes:** podem ser pessoa física ou jurídica.
-- **Vendedores:** considerados pessoa física.
-- **Categorias de cliente:** divididas em três grupos de mesmo tamanho pelo total comprado (`NTILE(3)`).
-
-## 👤 Autor
-
-**Seu Nome**
-[LinkedIn](https://www.linkedin.com/in/seu-perfil) · [GitHub](https://github.com/seu-usuario)
-
----
+_Válido analisar concentração geográfica, avaliamos que produtos da categoria de informática rende muito no faturamento, expandir vendas para regiões com menor demanda e pouca presença, com devido treinamento aos vendedores, e reforçar a venda desses produtos nas regiões fortes também._
 
 <sub>Projeto desenvolvido para fins educacionais.</sub>
